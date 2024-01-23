@@ -29,18 +29,19 @@ const Tela1 = ({ adicionarTarefa }) => {
   };
 
   const handleConcluidoPress = () => {
-    // Atualize o objeto dadosTarefa com as informações dos inputs
-    setDadosTarefa({
+    const categoriaSelecionada = Object.keys(categorias).find((categoria) => categorias[categoria]);
+  
+    const tarefa = {
       nome: dadosTarefa.nome,
       descricao: dadosTarefa.descricao,
       prazo: dadosTarefa.prazo,
-    });
-    adicionarTarefa(dadosTarefa.nome);
-
-    
-    navigation.navigate('Tela2', { dadosTarefa });
+      categoria: categoriaSelecionada,
+    };
+  
+    adicionarTarefa(tarefa);
+    navigation.navigate('Tela2', { dadosTarefa: tarefa });
   };
-
+  
   const navigateToPerfil = () => {
     navigation.navigate('TelaAccount');
   };
@@ -167,7 +168,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   background: {
-    backgroundColor: '#D0F0E8',
+    backgroundColor: 'gray',
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',

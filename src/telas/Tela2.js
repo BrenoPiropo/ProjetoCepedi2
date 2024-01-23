@@ -27,6 +27,14 @@ const Tela2 = ({ tarefas, setTarefas }) => {
   const navigateToTela1 = () => {
     navigation.navigate('Tela1');
   };
+  const navigateToTelaDescricao = (tarefa) => {
+    navigation.navigate('TelaDescricao', {
+      nome: tarefa.nome,
+      descricao: tarefa.descricao,
+      prazo: tarefa.prazo,
+      categoria: tarefa.categoria, // Certifique-se de incluir a categoria aqui
+    });
+  };
 
   return (
     <View style={styles.container}>
@@ -37,7 +45,11 @@ const Tela2 = ({ tarefas, setTarefas }) => {
 
         <ScrollView contentContainerStyle={styles.tarefasContainer}>
           {tarefas.map((tarefa, index) => (
-            <View key={index} style={styles.tarefaContainer}>
+            <TouchableOpacity
+              key={index}
+              onPress={() => navigateToTelaDescricao(tarefa)}
+              style={styles.tarefaContainer}
+            >
               <CheckBox
                 checked={tarefasConcluidas[index] || false}
                 onPress={() => toggleConcluida(index)}
@@ -49,7 +61,7 @@ const Tela2 = ({ tarefas, setTarefas }) => {
               <TouchableOpacity onPress={() => handleExcluirTarefa(index)} style={styles.excluirBotao}>
                 <Text style={styles.excluirTexto}>Excluir</Text>
               </TouchableOpacity>
-            </View>
+            </TouchableOpacity>
           ))}
         </ScrollView>
 
@@ -68,7 +80,7 @@ const styles = StyleSheet.create({
     marginTop: 35,
   },
   background: {
-    backgroundColor: '#D0F0E8',
+    backgroundColor: 'gray',
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -94,8 +106,7 @@ const styles = StyleSheet.create({
     width: 394,
     height: 61,
     marginTop: 14,
-  },
-  checkboxContainer: {
+  },xContainer: {
     marginRight: 10,
   },
   tarefaBox: {
