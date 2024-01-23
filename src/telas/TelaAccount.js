@@ -12,6 +12,9 @@ const YourComponent = () => {
   const handleAdicionarTarefasPress = () => {
     navigation.navigate('Tela1'); 
   };
+  const handleTarefasConcluidasPress = () => {
+    navigation.navigate('TelaConcluidas');
+  };
 
   return (
     <View style={styles.container}>
@@ -51,12 +54,12 @@ const YourComponent = () => {
         </View>
 
         {/* Card 4 */}
-        <View style={[styles.card, { backgroundColor: '#6BC785' }]}>
+        <TouchableOpacity style={[styles.card, { backgroundColor: '#6BC785' }]}onPress={handleTarefasConcluidasPress}>
           {/* Conteúdo do Card 4 */}
           <Text style={styles.cardText}>70%</Text>
           <Text style={styles.cardTextSub}>Concluídas</Text>
           <Text style={styles.cardTextSubSub}>07 tarefas concluídas</Text>
-        </View>
+        </TouchableOpacity>
       </View>
       
       {/* Botão "Ver Tarefas" */}
@@ -181,4 +184,3 @@ const styles = StyleSheet.create({
 });
 
 export default YourComponent;
-

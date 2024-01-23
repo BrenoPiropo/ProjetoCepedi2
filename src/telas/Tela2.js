@@ -106,7 +106,8 @@ const styles = StyleSheet.create({
     width: 394,
     height: 61,
     marginTop: 14,
-  },xContainer: {
+  },
+  checkboxContainer: {
     marginRight: 10,
   },
   tarefaBox: {
@@ -115,14 +116,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#F6F6F1',
     borderRadius: 8,
     padding: 10,
+
   },
   tarefaTexto: {
     fontSize: 16,
   },
   excluirBotao: {
-    backgroundColor: 'red',
+    backgroundColor: '#E37387',
     padding: 10,
     borderRadius: 5,
+    marginRight: 25,
   },
   excluirTexto: {
     color: 'white',

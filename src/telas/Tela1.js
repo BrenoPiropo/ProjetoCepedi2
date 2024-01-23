@@ -50,12 +50,12 @@ const Tela1 = ({ adicionarTarefa }) => {
   return (
     <View style={styles.container}>
       <View style={styles.background}>
-        <TouchableOpacity style={styles.botao} onPress={navigateToPerfil}>
-          <Text style={styles.botaoTexto}>Conta</Text>
+        <TouchableOpacity style={[styles.botao,{backgroundColor: 'gray', borderColor: 'white', borderWidth: 1}]} onPress={navigateToPerfil}>
+          <Text style={[styles.botaoTexto,{color:'white'}]}>Minha Conta</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao} >
-          <Text style={styles.botaoTexto}>CRIAR TAREFA</Text>
+        <TouchableOpacity style={[styles.botao,{backgroundColor: '#73C5BF', borderColor: 'white', borderWidth: 1}]} >
+          <Text style={[styles.botaoTexto,{color:'white'}]}>CRIAR TAREFA</Text>
         </TouchableOpacity>
 
         <View style={styles.retangulo}>
@@ -81,7 +81,7 @@ const Tela1 = ({ adicionarTarefa }) => {
           />
         </View>
 
-        <Text style={styles.categoriasText}>Categorias</Text>
+        <Text style={[styles.categoriasText,{color:'white'}]}>Categorias</Text>
 
         <TouchableOpacity
           style={[
@@ -150,7 +150,7 @@ const Tela1 = ({ adicionarTarefa }) => {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.Concluido} onPress={handleConcluidoPress}>
-          <Text style={styles.botaoTexto}>Concluído</Text>
+          <Text style={[styles.botaoTexto,{color : 'white'}]}>Concluído</Text>
         </TouchableOpacity>
         </View>
     </View>
@@ -182,6 +182,7 @@ const styles = StyleSheet.create({
     flexShrink: 0,
     color: 'black',
     marginTop: 48,
+    lineHeight: 15,
   },
   botao: {
     width: 309,
@@ -198,9 +199,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   botaoTexto: {
-    color: 'black',
+    color: '#73C5BF', //#73C5BF
     fontSize: 18,
     fontWeight: 'bold',
+
   },
   retangulo: {
     width: 309,
@@ -228,7 +230,7 @@ const styles = StyleSheet.create({
     height: 50,
     flexShrink: 0,
     backgroundColor: '#FFFFFF',
-    borderRadius: 8,
+    borderRadius: 30,
     marginTop: 20,
     marginLeft: -150,
     justifyContent: 'center',
@@ -244,7 +246,7 @@ const styles = StyleSheet.create({
     height: 50,
     flexShrink: 0,
     backgroundColor: '#FFFFFF',
-    borderRadius: 8,
+    borderRadius: 30,
     marginTop: 20,
     marginLeft: -150,
     justifyContent: 'center',
@@ -260,7 +262,7 @@ const styles = StyleSheet.create({
     height: 50,
     flexShrink: 0,
     backgroundColor: '#FFFFFF',
-    borderRadius: 8,
+    borderRadius: 30,
     marginTop: 20,
     marginLeft: -150,
     justifyContent: 'center',
@@ -276,7 +278,7 @@ const styles = StyleSheet.create({
     height: 50,
     flexShrink: 0,
     backgroundColor: '#FFFFFF',
-    borderRadius: 8,
+    borderRadius: 30,
     marginTop: -190,
     marginLeft: 190,
     justifyContent: 'center',
@@ -292,7 +294,7 @@ const styles = StyleSheet.create({
     height: 50,
     flexShrink: 0,
     backgroundColor: '#FFFFFF',
-    borderRadius: 8,
+    borderRadius: 30,
     marginTop: 20,
     marginLeft: 200,
     justifyContent: 'center',
@@ -308,7 +310,7 @@ const styles = StyleSheet.create({
     height: 50,
     flexShrink: 0,
     backgroundColor: '#FFFFFF',
-    borderRadius: 8,
+    borderRadius: 30,
     marginTop: 20,
     marginLeft: 200,
     justifyContent: 'center',
@@ -324,8 +326,8 @@ const styles = StyleSheet.create({
     height: 44,
     flexShrink: 0,
     backgroundColor: '#6BC785',
-    borderRadius: 8,
-    marginTop: 50,
+    borderRadius: 30,
+    marginTop: 30,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: 'rgba(0, 0, 0, 0.25)',
@@ -335,5 +337,6 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
 });
+
 
 export default Tela1;
