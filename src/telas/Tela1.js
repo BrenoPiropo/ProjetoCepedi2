@@ -41,9 +41,18 @@ const Tela1 = ({ adicionarTarefa }) => {
     navigation.navigate('Tela2', { dadosTarefa });
   };
 
+  const navigateToPerfil = () => {
+    navigation.navigate('TelaAccount');
+  };
+
+
   return (
     <View style={styles.container}>
       <View style={styles.background}>
+        <TouchableOpacity style={styles.botao} onPress={navigateToPerfil}>
+          <Text style={styles.botaoTexto}>Conta</Text>
+        </TouchableOpacity>
+
         <TouchableOpacity style={styles.botao} >
           <Text style={styles.botaoTexto}>CRIAR TAREFA</Text>
         </TouchableOpacity>
