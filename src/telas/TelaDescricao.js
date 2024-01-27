@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 
-const TelaDescricao = ({ route }) => {
-  const { nome, descricao, prazo, categoria } = route.params;
+const TelaDescricao = () => {
+  const [tarefa, setTarefa] = useState({});
   const navigation = useNavigation();
+
+  useEffect(() => {
+    const carregarTarefa = async () => {
+      try {
+        // Recuperar os dados da tarefa do AsyncStorage
+        const tarefaJson = await AsyncStorage.getItem('tarefaSelecionada');
+        
+        if (tarefaJson) {
+          const tarefaRecuperada = JSON.parse(tarefaJson);
+          setTarefa(tarefaRecuperada);
+        }
+      } catch (error) {
+        console.error('Erro ao recuperar tarefa do AsyncStorage:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    carregarTarefa();
+  }, []);
 
   const handleVoltarPress = () => {
     navigation.goBack();
@@ -17,32 +38,31 @@ const TelaDescricao = ({ route }) => {
       </TouchableOpacity>
         
       <View style={styles.descricaoContainer}>
-
         <View style={styles.itemContainer}>
           <Text style={styles.rotulo}>Nome da Tarefa:</Text>
           <View style={styles.nomeBox}>
-            <Text style={styles.valor}>{nome}</Text>
+            <Text style={styles.valor}>{tarefa.nome}</Text>
           </View>
         </View>
 
         <View style={styles.itemContainer}>
           <Text style={styles.rotulo}>Descrição da Tarefa:</Text>
           <View style={styles.descricaoBox}>
-            <Text style={styles.valor}>{descricao}</Text>
+            <Text style={styles.valor}>{tarefa.descricao}</Text>
           </View>
         </View>
 
         <View style={styles.itemContainer}>
           <Text style={styles.rotulo}>Prazo:</Text>
           <View style={styles.prazoBox}>
-            <Text style={styles.valor}>{prazo}</Text>
+            <Text style={styles.valor}>{tarefa.prazo}</Text>
           </View>
         </View>
 
         <View style={styles.itemContainer}>
           <Text style={styles.rotulo}>Categoria:</Text>
           <View style={styles.categoriaBox}>
-            <Text style={styles.valor}>{categoria}</Text>
+            <Text style={styles.valor}>{tarefa.categoria}</Text>
           </View>
         </View>
         <TouchableOpacity style={styles.voltarBotao} onPress={handleVoltarPress}>

@@ -13,12 +13,14 @@ const YourComponent = () => {
     navigation.navigate('Tela1'); 
   };
   const handleTarefasConcluidasPress = () => {
-    navigation.navigate('TelaConcluidas');
+    navigation.navigate('TelaConcluidas', {
+      tarefas: tarefas, 
+      tarefasConcluidas: tarefasConcluidas, 
+    });
   };
-
+  
   return (
     <View style={styles.container}>
-      {/* Avatar do usuário */}
       <View style={styles.avatarContainer}>
         <Image
           style={styles.avatar}
