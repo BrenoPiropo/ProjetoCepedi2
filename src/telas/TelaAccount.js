@@ -13,11 +13,8 @@ const YourComponent = () => {
     navigation.navigate('Tela1'); 
   };
   const handleTarefasConcluidasPress = () => {
-    navigation.navigate('TelaConcluidas', {
-      tarefas: tarefas, 
-      tarefasConcluidas: tarefasConcluidas, 
-    });
-  };
+      navigation.navigate('TelaConcluidas' );
+  }
   
   return (
     <View style={styles.container}>
@@ -58,9 +55,7 @@ const YourComponent = () => {
         {/* Card 4 */}
         <TouchableOpacity style={[styles.card, { backgroundColor: '#6BC785' }]}onPress={handleTarefasConcluidasPress}>
           {/* Conteúdo do Card 4 */}
-          <Text style={styles.cardText}>70%</Text>
           <Text style={styles.cardTextSub}>Concluídas</Text>
-          <Text style={styles.cardTextSubSub}>07 tarefas concluídas</Text>
         </TouchableOpacity>
       </View>
       
