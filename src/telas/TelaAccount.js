@@ -10,64 +10,62 @@ const YourComponent = () => {
   };
 
   const handleAdicionarTarefasPress = () => {
-    navigation.navigate('Tela1'); 
+    navigation.navigate('Tela1');
   };
+
+  const handleTarefasAbertasPress = () => {
+    navigation.navigate('Tela2');
+  };
+
   const handleTarefasConcluidasPress = () => {
-      navigation.navigate('TelaConcluidas' );
-  }
-  
+    navigation.navigate('TelaConcluidas');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.avatarContainer}>
         <Image
           style={styles.avatar}
           source={require('../assets/icons/perfill.jpg')}
-        /> 
+        />
       </View>
       <Text style={styles.userName}>Miau</Text>
+
       <View style={styles.row}>
         {/* Card 1 */}
-        <View style={[styles.card, { backgroundColor: '#73C5BF' }]}>
-          {/* Conteúdo do Card 1 */}
-          <Text style={styles.cardText}>10</Text>
-          <Text style={styles.cardTextSub}>Cadastradas</Text>
-          <Text style={styles.cardTextSubSub}>10 tarefas hoje</Text>
-        </View>
+        <TouchableOpacity
+          style={[styles.card, { backgroundColor: '#73C5BF' }]}
+          onPress={handleVerTarefasPress}
+        >
+          <Text style={styles.cardText}>Ver Tarefas</Text>
+        </TouchableOpacity>
 
         {/* Card 2 */}
-        <View style={[styles.card, { backgroundColor: '#E37387' }]}>
-          {/* Conteúdo do Card 2 */}
-          <Text style={styles.cardText}>10%</Text>
-          <Text style={styles.cardTextSub}>Pendentes</Text>
-          <Text style={styles.cardTextSubSub}>01 tarefa pendente</Text>
-        </View>
+        <TouchableOpacity
+          style={[styles.card, { backgroundColor: '#E37387' }]}
+          onPress={handleAdicionarTarefasPress}
+        >
+          <Text style={styles.cardText}>Adicionar Tarefas</Text>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.row}>
         {/* Card 3 */}
-        <View style={[styles.card, { backgroundColor: '#918CCF' }]}>
-          {/* Conteúdo do Card 3 */}
-            <Text style={styles.cardText}>20%</Text>
-            <Text style={styles.cardTextSub}>Em Aberto</Text>
-            <Text style={styles.cardTextSubSub}>02 tarefas em aberto</Text>
-        </View>
+        <TouchableOpacity
+          style={[styles.card, { backgroundColor: '#918CCF' }]}
+          onPress={handleTarefasAbertasPress}
+        >
+          <Text style={styles.cardText}>Em Aberto</Text>
+        </TouchableOpacity>
 
         {/* Card 4 */}
-        <TouchableOpacity style={[styles.card, { backgroundColor: '#6BC785' }]}onPress={handleTarefasConcluidasPress}>
-          {/* Conteúdo do Card 4 */}
-          <Text style={styles.cardTextSub}>Concluídas</Text>
+        <TouchableOpacity
+          style={[styles.card, { backgroundColor: '#6BC785' }]}
+          onPress={handleTarefasConcluidasPress}
+        >
+          <Text style={styles.cardText}>Concluídas</Text>
         </TouchableOpacity>
       </View>
-      
-      {/* Botão "Ver Tarefas" */}
-      <TouchableOpacity style={styles.button} onPress={handleVerTarefasPress}>
-        <Text style={styles.buttonText}>Ver Tarefas</Text>
-      </TouchableOpacity>
-
-      {/* Botão "Adicionar Tarefas" */}
-      <TouchableOpacity style={styles.buttonAdicionar} onPress={handleAdicionarTarefasPress}>
-        <Text style={styles.buttonText}> + Adicionar Tarefas</Text>
-      </TouchableOpacity>
     </View>
   );
 };
@@ -78,60 +76,47 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
     padding: 16,
   },
-
   avatar: {
     width: 123,
     height: 122,
     borderRadius: 25,
     marginBottom: 10,
-    top:90,
+    top: 90,
     marginLeft: 120,
-    borderRadius: 123, 
+    borderRadius: 123,
   },
   userName: {
     color: 'white',
     fontSize: 20,
     fontWeight: '600',
     top: 100,
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    flexDirection: 'column',
-    marginLeft: 150
+    marginLeft: 150,
   },
-  
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 10,
   },
   card: {
-    display: 'inline-flex',
-    height: 179,
+    height: 200,  
     padding: 15,
-    flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'flex-start',
-    gap: 13,
+    alignItems: 'center',
     borderRadius: 10,
-    flexShrink: 0,
-    flex: 1,
-    top:270,
+    top: 170,
     marginLeft: 5,
     marginRight: 5,
+    flex: 1,
   },
   cardText: {
     color: '#FFFDFC',
-    fontSize: 32,
-    fontWeight: '900',
-    lineHeight: 40,
-    marginTop: 40,
+    fontSize: 18,
+    fontWeight: '600',
   },
   cardTextSub: {
     color: '#FFFDFC',
     fontSize: 16,
     fontWeight: '600',
-    lineHeight: 20,
-    marginTop: 15,
   },
   cardTextSubSub: {
     color: '#FFFDFC',
@@ -166,7 +151,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginLeft: 180,
     marginRight: 2,
-    marginTop: -35, 
+    marginTop: -35,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: 'rgba(0, 0, 0, 0.25)',
